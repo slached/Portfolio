@@ -1,12 +1,5 @@
-const LinkedInIcon = () => (
-  <svg
-    fill="#03045E"
-    height="20px"
-    width="20px"
-    version="1.1"
-    id="Layer_1"
-    viewBox="0 0 310 310"
-  >
+const LinkedInIcon = (props) => (
+  <svg fill="#03045E" width={props.size} height={props.size} version="1.1" id="Layer_1" viewBox="0 0 310 310">
     <g id="XMLID_801_">
       <path
         id="XMLID_802_"

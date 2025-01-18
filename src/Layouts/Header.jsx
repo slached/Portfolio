@@ -3,10 +3,7 @@
 import React from "react";
 import { LinkedInIcon, GithubIcon } from "../Static/images/logos";
 
-export default function Header() {
-
-
-
+export default function Header(props) {
   return (
     <div className="flex justify-center ">
       <div className="flex select-none justify-between items-center text-dark-blue-p mb-[121px] max-w-[1200px] grow">
@@ -38,10 +35,10 @@ export default function Header() {
         </div>
         <div className="flex md:gap-[29px] gap-2">
           <a target="_blank" href="https://www.linkedin.com/in/%C3%B6mer-bircan-%C5%9Fahin-2a0896240/">
-            <LinkedInIcon />
+            <LinkedInIcon size={props.isMobile ? "10px" : "20px"} />
           </a>
           <a target="_blank" href="https://www.github.com/slached">
-            <GithubIcon />
+            <GithubIcon size={props.isMobile ? "10px" : "20px"} />
           </a>
         </div>
       </div>

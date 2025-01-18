@@ -72,7 +72,7 @@ export default function Body() {
             both challenges and immense satisfaction for me. The opportunity to deepen my knowledge and skills in these processes
             keeps me motivated every day.
           </p>
-          <ul className="md:ms-[256px] list-disc flex flex-col gap-[80px]">
+          <ul className="ms-[20px] md:ms-[256px] list-disc flex flex-col gap-[80px]">
             <li>
               <h3 className="font-semibold text-[24px] mb-[10px]">2015-2019</h3>
               <p>
