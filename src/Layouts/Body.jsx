@@ -3,7 +3,7 @@ import CoolButton from "../Components/CoolButton";
 
 export default function Body() {
   const [showedWork, setShowedWork] = React.useState(2);
-  const [works, setWorks] = React.useState([
+  const [works] = React.useState([
     {
       date: "May 11, 2024",
       title: "Bitcode Maker",
@@ -47,7 +47,6 @@ export default function Body() {
       github: "https://github.com/slached/TodoApp",
     },
   ]);
-
 
   return (
     <div className="flex justify-center">
@@ -99,20 +98,29 @@ export default function Body() {
           </p>
           {/* <!-- Work Cards --> */}
           <div className="grid grid-cols-1 md:grid-cols-2  2xl:grid-cols-3 gap-x-[144px] gap-y-[50px]">
-            {works.map((work, index) => {
-              if (index + 1 <= showedWork) {
-                return (
-                  <div className="max-w-[400px]">
-                    <h3 className="italic text-[15px] mt-[20px] mb-[10px]">{work.date}</h3>
-                    <h2 className="font-semibold text-[24px]">{work.title}</h2>
-                    <p className="text-[18px] mt-[10px]">{work.description}</p>
-                    <a target="_blank" href={work.github} className="text-[18px] mt-[10px] font-bold text-dark-brown-p">
-                      github link.
-                    </a>
-                  </div>
-                );
-              }
-            })}
+            {works
+              // first sort by date - for newest to oldest
+              .sort((a, b) => -(Date.parse(a.date) - Date.parse(b.date)))
+              .map((work, index) => {
+                if (index + 1 <= showedWork) {
+                  return (
+                    <div className="max-w-[400px]">
+                      <h3 className="italic text-[15px] mt-[20px] mb-[10px]">{work.date}</h3>
+                      <h2 className="font-semibold text-[24px]">{work.title}</h2>
+                      <p className="text-[18px] mt-[10px]">{work.description}</p>
+                      <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href={work.github}
+                        className="text-[18px] mt-[10px] font-bold text-dark-brown-p"
+                      >
+                        github link.
+                      </a>
+                    </div>
+                  );
+                }
+                return null;
+              })}
           </div>
           {/* <!-- Show More/Less Button --> */}
           <div className="mt-[40px] select-none">
