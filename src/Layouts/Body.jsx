@@ -80,7 +80,7 @@ export default function Body() {
               </p>
             </li>
             <li>
-              <h3 className="font-semibold text-[24px] mb-[10px]">2021-2024</h3>
+              <h3 className="font-semibold text-[24px] mb-[10px]">2020-2024</h3>
               <p>
                 Bachelor's Degree, Inonu University <strong>Computer Engineering.</strong>
               </p>
