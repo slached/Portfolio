@@ -6,12 +6,24 @@ import { LinkedInIcon, GithubIcon } from "../Static/images/logos";
 export default function Header(props) {
   return (
     <div className="flex justify-center ">
-      <div className="flex select-none justify-between items-center text-dark-blue-p mb-[121px] max-w-[1200px] grow">
-        <a className="text-[10px] font-semibold md:text-[24px] cursor-pointer" onClick={() => window.location.reload()}>
+      <div className="flex select-none justify-between items-center text-dark-blue-p max-w-[1200px] grow">
+        <a
+          className="text-[10px] font-semibold md:text-[24px] cursor-pointer"
+          onClick={() => {
+            window.location.reload();
+            window.scrollTo(0, 0);
+          }}
+        >
           Ömer Bircan Şahin
         </a>
         <div className="flex text-[10px] mx-[5px] gap-2 md:gap-[61px] md:text-[18px]">
-          <div className="cursor-pointer" onClick={() => window.location.reload()}>
+          <div
+            className="cursor-pointer"
+            onClick={() => {
+              window.location.reload();
+              window.scrollTo(0, 0);
+            }}
+          >
             Home
           </div>
           <div
