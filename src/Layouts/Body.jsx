@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CoolButton from "../Components/CoolButton";
+import { LowerVisual, UpperVisual } from "../Static/images/logos";
 
 export default function Body() {
+  const [deviceType, setDeviceType] = React.useState("desktop");
   const [showedWork, setShowedWork] = React.useState(2);
   const [works] = React.useState([
     {
@@ -48,17 +50,46 @@ export default function Body() {
     },
   ]);
 
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      if (window.innerWidth < 768) {
+        setDeviceType("mobile");
+      } else if (window.innerWidth < 1024) {
+        setDeviceType("tablet");
+      } else {
+        setDeviceType("desktop");
+      }
+    });
+  }, []);
+
   return (
     <div className="flex justify-center">
       <div className="flex flex-col  text-dark-blue-p max-w-[1200px] grow">
         {/* <!-- Upper Definition --> */}
         <div className="mb-[200px] flex justify-between items-center md:mb-[270px]">
-          <div className="flex flex-col">
+          <div className="flex flex-col mr-5">
             <p className="text-[18px] font-medium md:text-[28px] md:mb-[11px]">Hello, I'm Ömer,</p>
             <h1 className="text-[60px] font-extrabold md:text-[100px] md:max-w-[230px] md:leading-[116px]">Computer Engineer</h1>
             <p className="text-[18px] font-medium md:text-[28px] mt-[10px] md:mt-[20px] mb-[37px]">based in Türkiye.</p>
             <CoolButton text="Resume" />
           </div>
+          {deviceType !== "tablet" && (
+            <div className="flex flex-col relative bottom-10 ">
+              <div className="flex justify-end relative top-[15px] right-[20px]">
+                <UpperVisual height={deviceType === "desktop" ? "56" : "35"} width={deviceType === "desktop" ? "50" : "35"} />
+              </div>
+              <img
+                alt="biometric_"
+                // @ts-ignore
+                src={require("../Static/images/others/biometric.png")}
+                width="300px"
+                height="300px"
+              />
+              <div className="flex justify-start relative lg:bottom-[115px] bottom-[75px] right-[15px] lg:right-[45px]">
+                <LowerVisual height={deviceType === "desktop" ? "30" : "50"} width={deviceType === "desktop" ? "103" : "60"} />
+              </div>
+            </div>
+          )}
         </div>
         {/* <!-- About Definition --> */}
         <div id="about-section" className="flex flex-col mb-[180px]">
@@ -131,7 +162,7 @@ export default function Body() {
                   setShowedWork(showedWork + 2);
                 }}
               >
-                Show more...
+                <strong>Show more...</strong>
               </div>
             ) : (
               <div
@@ -140,7 +171,7 @@ export default function Body() {
                   setShowedWork((prevState) => (prevState > 0 ? 2 : 0));
                 }}
               >
-                Show less
+                <strong>Show less</strong>
               </div>
             )}
           </div>
@@ -148,29 +179,30 @@ export default function Body() {
         {/* <!-- Contact Section --> */}
         <div className="flex flex-col mb-[90px]">
           <h1 className="font-extrabold text-[50px] md:text-[100px]  text-very-light-yellow-p mb-[49px]">contact.</h1>
-          <div className="md:flex md:gap-x-[50px] ">
+          <div className="md:flex md:gap-x-[50px]">
             <img
-              className="w-[400px] h-[314px]"
+              width={deviceType === "desktop" ? "400px" : deviceType === "tablet" ? "300px" : "400px"}
+              height={deviceType === "desktop" ? "400px" : deviceType === "tablet" ? "300px" : "400px"}
+              className="object-cover rounded-[10px] md:rounded-[20px] mb-[20px] "
               alt="contact_i"
               // @ts-ignore
               src={require("../Static/images/others/contact.png")}
             />
-            <div className="flex flex-col">
+
+            <div className="flex flex-col min-w-[560px]">
               <p className="text-[12px] lg:text-[24px] lg:leading-[44px] mb-[21px] mt-[20px] md:mt-0">
                 Let's Connect! Feel free to reach out to me for collaboration, inquiries, or just to say hello. Whether you're
                 interested in discussing a project, seeking assistance, or sharing ideas, I'm always open to meaningful
                 conversations.
               </p>
-              <div className="text-[12px] lg:text-[15px]">
+              <div className="text-[12px] lg:text-[15px] ">
                 <p>📩 Email: omerbsahin@gmail.com</p>
                 <p>
                   💼 LinkedIn:{" "}
-                  <a href="https://www.linkedin.com/in/%C3%B6mer-bircan-%C5%9Fahin-2a0896240/">
-                    https://www.linkedin.com/in/%C3%B6mer-bircan-%C5%9Fahin-2a0896240/
-                  </a>
+                  <a href="https://www.linkedin.com/in/%C3%B6mer-bircan-%C5%9Fahin-2a0896240/">https://www.linkedin.com</a>
                 </p>
                 <p>
-                  🌐 GitHub: <a href="https://github.com/slached">https://github.com/slached</a>
+                  🌐 GitHub: <a href="https://github.com/slached">https://github.com</a>
                 </p>
               </div>
             </div>

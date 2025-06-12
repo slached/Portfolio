@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function CoolButton(props) {
   const handleDownload = () => {
     const link = document.createElement("a");
