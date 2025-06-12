@@ -52,7 +52,7 @@ export default function Body() {
 
   useEffect(() => {
     window.addEventListener("resize", () => {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 728) {
         setDeviceType("mobile");
       } else if (window.innerWidth < 1024) {
         setDeviceType("tablet");
@@ -66,14 +66,14 @@ export default function Body() {
     <div className="flex justify-center">
       <div className="flex flex-col  text-dark-blue-p max-w-[1200px] grow">
         {/* <!-- Upper Definition --> */}
-        <div className="mb-[200px] flex justify-between items-center md:mb-[270px]">
+        <div className="mb-[200px] flex justify-between items-center lg:mb-[270px]">
           <div className="flex flex-col mr-5">
-            <p className="text-[18px] font-medium md:text-[28px] md:mb-[11px]">Hello, I'm Ömer,</p>
-            <h1 className="text-[60px] font-extrabold md:text-[100px] md:max-w-[230px] md:leading-[116px]">Computer Engineer</h1>
-            <p className="text-[18px] font-medium md:text-[28px] mt-[10px] md:mt-[20px] mb-[37px]">based in Türkiye.</p>
+            <p className="text-[18px] font-medium lg:text-[28px] lg:mb-[11px]">Hello, I'm Ömer,</p>
+            <h1 className="text-[60px] font-extrabold lg:text-[100px] lg:max-w-[230px] lg:leading-[116px]">Computer Engineer</h1>
+            <p className="text-[18px] font-medium lg:text-[28px] mt-[10px] lg:mt-[20px] mb-[37px]">based in Türkiye.</p>
             <CoolButton text="Resume" />
           </div>
-          {deviceType !== "tablet" && (
+          {deviceType !== "mobile" && (
             <div className="flex flex-col relative bottom-10 ">
               <div className="flex justify-end relative top-[15px] right-[20px]">
                 <UpperVisual height={deviceType === "desktop" ? "56" : "35"} width={deviceType === "desktop" ? "50" : "35"} />
@@ -82,8 +82,8 @@ export default function Body() {
                 alt="biometric_"
                 // @ts-ignore
                 src={require("../Static/images/others/biometric.png")}
-                width="300px"
-                height="300px"
+                width={deviceType === "desktop" ? "300px" : deviceType === "tablet" ? "250px" : "300px"}
+                height={deviceType === "desktop" ? "300px" : deviceType === "tablet" ? "250px" : "300px"}
               />
               <div className="flex justify-start relative lg:bottom-[115px] bottom-[75px] right-[15px] lg:right-[45px]">
                 <LowerVisual height={deviceType === "desktop" ? "30" : "50"} width={deviceType === "desktop" ? "103" : "60"} />
@@ -93,8 +93,8 @@ export default function Body() {
         </div>
         {/* <!-- About Definition --> */}
         <div id="about-section" className="flex flex-col mb-[180px]">
-          <h1 className="text-[50px] font-extrabold md:text-[100px] text-very-light-yellow-p mb-[32px]">about.</h1>
-          <p className="text-[18px] md:text-[24px] md:leading-[44px] md:max-w-[900px] mb-[140px]">
+          <h1 className="text-[50px] font-extrabold lg:text-[100px] text-very-light-yellow-p mb-[32px]">about.</h1>
+          <p className="text-[18px] lg:text-[24px] lg:leading-[44px] lg:max-w-[900px] mb-[140px]">
             My interest and curiosity in technology have always driven me to follow the latest developments and conduct in-depth
             research. The primary motivation behind pursuing a degree in computer engineering was this passion. I believe I have a
             quick grasp of new technologies and the ability to learn them rapidly. I thoroughly enjoy combining theoretical
