@@ -3,7 +3,7 @@ import CoolButton from "../Components/CoolButton";
 import { LowerVisual, UpperVisual } from "../Static/images/logos";
 
 export default function Body() {
-  const [deviceType, setDeviceType] = React.useState("desktop");
+  const [deviceType, setDeviceType] = React.useState("mobile"); // default to mobile
   const [showedWork, setShowedWork] = React.useState(2);
   const [works] = React.useState([
     {
@@ -189,7 +189,7 @@ export default function Body() {
               src={require("../Static/images/others/contact.png")}
             />
 
-            <div className="flex flex-col min-w-[560px]">
+            <div className="flex flex-col ">
               <p className="text-[12px] lg:text-[24px] lg:leading-[44px] mb-[21px] mt-[20px] md:mt-0">
                 Let's Connect! Feel free to reach out to me for collaboration, inquiries, or just to say hello. Whether you're
                 interested in discussing a project, seeking assistance, or sharing ideas, I'm always open to meaningful
