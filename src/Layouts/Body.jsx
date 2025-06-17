@@ -51,7 +51,7 @@ export default function Body() {
   ]);
 
   useEffect(() => {
-    window.addEventListener("resize", () => {
+    const resizeChecker = () => {
       if (window.innerWidth < 728) {
         setDeviceType("mobile");
       } else if (window.innerWidth < 1024) {
@@ -59,7 +59,12 @@ export default function Body() {
       } else {
         setDeviceType("desktop");
       }
-    });
+    };
+
+    // init device screen check
+    resizeChecker();
+
+    window.addEventListener("resize", resizeChecker);
   }, []);
 
   return (
@@ -135,7 +140,7 @@ export default function Body() {
               .map((work, index) => {
                 if (index + 1 <= showedWork) {
                   return (
-                    <div className="max-w-[400px]">
+                    <div key={index} className="max-w-[400px]">
                       <h3 className="italic text-[15px] mt-[20px] mb-[10px]">{work.date}</h3>
                       <h2 className="font-semibold text-[24px]">{work.title}</h2>
                       <p className="text-[18px] mt-[10px]">{work.description}</p>
